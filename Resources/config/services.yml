@@ -1,0 +1,5 @@
+services:
+    frosas_misc.common_missing_files_ignoring:
+        class: Frosas\MiscBundle\EventListener\CommonMissingFilesIgnoring
+        tags:
+          - {name: kernel.event_listener, event: kernel.exception}
