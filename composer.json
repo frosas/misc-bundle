@@ -3,5 +3,5 @@
     "description": "A Symfony2 bundle with features not worth putting apart",
     "authors": [{"name": "Francesc Rosàs", "email": "francescrosasbosque@gmail.com"}],
     "license": "MIT",
-    "autoload": {"psr-0": { "Frosas\\MiscBundle": "" }}
+    "autoload": {"psr-0": { "Frosas\\MiscBundle": "." }}
 }
