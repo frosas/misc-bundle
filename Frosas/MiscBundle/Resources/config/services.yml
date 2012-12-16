@@ -14,3 +14,15 @@ services:
         arguments: [@service_container]
         tags:
             - {name: validator.constraint_validator, alias: frosas_misc.service_validator}
+
+    frosas_misc.swift_mailer_logger_plugin:
+        class: Swift_Plugins_LoggerPlugin
+        arguments: [@frosas_misc.swift_mailer_logger]
+        tags:
+            - {name: swiftmailer.plugin}
+
+    frosas_misc.swift_mailer_logger:
+        class: Frosas\MiscBundle\SwiftMailerLogger
+        arguments: [@logger]
+        tags:
+            - {name: monolog.logger, channel: mailer}
