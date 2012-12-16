@@ -3,3 +3,8 @@ services:
         class: Frosas\MiscBundle\EventListener\CommonMissingFilesIgnoring
         tags:
           - {name: kernel.event_listener, event: kernel.exception}
+
+    frosas_misc.controller_initialization:
+      class: Frosas\MiscBundle\EventListener\ControllerInitialization
+      tags:
+        - {name: kernel.event_listener, event: kernel.controller}
