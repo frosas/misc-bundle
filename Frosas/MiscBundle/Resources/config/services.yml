@@ -8,3 +8,9 @@ services:
       class: Frosas\MiscBundle\EventListener\ControllerInitialization
       tags:
         - {name: kernel.event_listener, event: kernel.controller}
+
+    frosas_misc.service_validator:
+        class: Frosas\MiscBundle\Constraint\ServiceValidator
+        arguments: [@service_container]
+        tags:
+            - {name: validator.constraint_validator, alias: frosas_misc.service_validator}
