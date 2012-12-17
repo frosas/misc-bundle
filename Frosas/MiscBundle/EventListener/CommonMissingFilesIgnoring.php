@@ -6,14 +6,14 @@ use JMS\DiExtraBundle\Annotation as DI;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Frosas\Collection;
 
 class CommonMissingFilesIgnoring
 {
-    private $ignoredFiles = array(
-        '/robots.txt',
-        '/favicon.ico',
-        '/apple-touch-icon-precomposed.png',
-        '/apple-touch-icon.png'
+    private $ignoredFilesRegexes = array(
+        '#^/robots.txt$#',
+        '#^/favicon.ico$#',
+        '#^/apple-touch-icon.*\.png$#'
     );
 
     function onKernelException(GetResponseForExceptionEvent $event)
@@ -29,6 +29,8 @@ class CommonMissingFilesIgnoring
     {
         return
             $event->getException() instanceof NotFoundHttpException &&
-            in_array($event->getRequest()->getPathInfo(), $this->ignoredFiles);
+            Collection::any($this->ignoredFilesRegexes, function($regex) use ($event) {
+                return preg_match($regex, $event->getRequest()->getPathInfo());
+            });
     }
 }
