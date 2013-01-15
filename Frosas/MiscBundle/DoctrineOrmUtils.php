@@ -16,12 +16,12 @@ class DoctrineOrmUtils
     function entityPropertiesHaveChanged($entity, $properties, $options = null)
     {
         foreach ((array) $properties as $property) {
-            list($original, $current) = $this->entityPropertyValues($entity, $property, $options);
+            list($original, $current) = $this->getEntityPropertyValues($entity, $property, $options);
             if ($original !== $current) return true;
         }
     }
 
-    private function entityPropertyValues($entity, $property, $options = null)
+    function getEntityPropertyValues($entity, $property, $options = null)
     {
         $options = (array) $options + array('computeChangeset' => false);
 
