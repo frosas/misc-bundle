@@ -4,5 +4,5 @@
     "authors": [{"name": "Francesc Rosàs", "email": "francescrosasbosque@gmail.com"}],
     "license": "MIT",
     "autoload": {"psr-0": { "Frosas\\MiscBundle": "." }},
-    "require": {"frosas/misc": "*@dev"}
+    "require": {"frosas/misc": "dev-master@dev"}
 }
