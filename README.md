@@ -8,3 +8,4 @@
 - Crawler helper. See [CrawlerHelper](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/CrawlerHelper.php).
 - Form helper. See [FormHelper](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/FormHelper.php).
 - Entity validation (on flush). See [EntityValidation](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/EventListener/EntityValidation.php).
+- Avoid entity flush overlappings. See [NoEntityFlushOverlapping](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/EventListener/NoEntityFlushOverlapping.php).

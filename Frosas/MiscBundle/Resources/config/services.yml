@@ -21,8 +21,16 @@ services:
         tags:
             - {name: monolog.logger, channel: mailer}
 
-    frosas_misc.entity_flush_validator:
+    frosas_misc.entity_validation:
         class: Frosas\MiscBundle\EventListener\EntityValidation
         arguments: [@validator]
         tags:
             - {name: doctrine.event_listener, event: onFlush}
+
+    frosas_misc.no_entity_flush_overlapping:
+        class: Frosas\MiscBundle\EventListener\NoEntityFlushOverlapping
+        tags:
+            # We want to start monitoring after all other preFlushes and stop before
+            # all other postFlushes as flushing there is allowed
+            - {name: doctrine.event_listener, event: preFlush, priority: 9999}
+            - {name: doctrine.event_listener, event: postFlush, priority: -9999}
