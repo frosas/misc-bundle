@@ -7,3 +7,4 @@
 - Doctrine ORM utils. See [DoctrineOrmUtils](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/DoctrineOrmUtils.php).
 - Crawler helper. See [CrawlerHelper](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/CrawlerHelper.php).
 - Form helper. See [FormHelper](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/FormHelper.php).
+- Entity validation (on flush). See [EntityValidation](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/EventListener/EntityValidation.php).

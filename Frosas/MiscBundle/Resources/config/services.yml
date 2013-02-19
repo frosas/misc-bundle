@@ -20,3 +20,9 @@ services:
         arguments: [@logger, @swiftmailer.transport]
         tags:
             - {name: monolog.logger, channel: mailer}
+
+    frosas_misc.entity_flush_validator:
+        class: Frosas\MiscBundle\EventListener\EntityValidation
+        arguments: [@validator]
+        tags:
+            - {name: doctrine.event_listener, event: onFlush}
