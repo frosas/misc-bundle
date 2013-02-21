@@ -4,6 +4,13 @@
     "authors": [{"name": "Francesc Rosàs", "email": "francescrosasbosque@gmail.com"}],
     "license": "MIT",
     "autoload": {"psr-0": { "Frosas\\MiscBundle": "." }},
-    "require": {"frosas/misc": "~3.0@dev"},
+    "require": {
+        "symfony/http-foundation": "~2.1",
+        "symfony/form": "~2.1",
+        "frosas/misc": "~3.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
     "extra": {"branch-alias": {"dev-master": "1.0-dev"}}
 }

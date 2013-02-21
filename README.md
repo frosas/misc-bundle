@@ -16,3 +16,10 @@
 - [ORM utils](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/DoctrineOrmUtils.php)
 - [Validate entities on flush](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/EventListener/EntityValidation.php)
 - [Detect flush overlappings](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/EventListener/NoEntityFlushOverlapping.php)
+
+## Testing
+
+```bash
+$ composer update --dev
+$ vendor/bin/phpunit
+```
