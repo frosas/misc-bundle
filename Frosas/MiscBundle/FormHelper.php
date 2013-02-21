@@ -41,13 +41,17 @@ class FormHelper
 
     function bind(Request $request)
     {
-        if ($this->isSubmitted($request)) $this->form->bind($request);
+        if (! $this->form->isBound() && $this->isSubmitted($request)) {
+            $this->form->bind($request);
+        }
+
         return $this;
     }
 
     function isValid(Request $request)
     {
-        if (! $this->form->isBound()) $this->bind($request);
+        $this->bind($request);
+
         if ($this->form->isBound()) return $this->form->isValid();
     }
 }

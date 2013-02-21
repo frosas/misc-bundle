@@ -36,6 +36,14 @@ class FormHelperTest extends \PHPUnit_Framework_TestCase
         FormHelper::create($form)->bind(new Request);
     }
 
+    function testBindBoundDoesntBind()
+    {
+        $form = $this->createFormMock();
+        $form->expects($this->any())->method('isBound')->will($this->returnValue(true));
+        $form->expects($this->never())->method('bind');
+        FormHelper::create($form)->bind(new Request(array('name' => array())));
+    }
+
     function testValidBoundIsValid()
     {
         $form = $this->createFormMock();
