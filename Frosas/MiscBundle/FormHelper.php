@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Also, it knows which form was submitted in actions with multiple forms. Every
  * form has to have its name, for example:
  *
- *     $contactFormBuilder = return $container->get('form.factory')->createNamedBuilder('contact', 'form');
+ *     $contactFormBuilder = $container->get('form.factory')->createNamedBuilder('contact', 'form');
  */
 class FormHelper
 {
