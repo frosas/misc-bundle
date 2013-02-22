@@ -4,6 +4,7 @@
 - [Service validation constraint](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/Constraint/Service.php)
 - [Crawler helper](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/HttpKernelClient/CrawlerHelper.php)
 - [Form helper](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/FormHelper.php)
+- [SwiftMailer Monolog handler](https://github.com/frosas/misc-bundle/blob/master/Frosas/MiscBundle/Monolog/Handler/SwiftMailer.php)
 
 ### Logging
 

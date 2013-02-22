@@ -5,6 +5,30 @@ namespace Frosas\MiscBundle\Monolog\Handler;
 use Frosas\Collection;
 use Monolog\Handler\MailHandler;
 
+/**
+ * Features
+ *
+ * - Record message as subject
+ * - Better records formatting (don't wrap lines)
+ * - Sender and recipient can have a name
+ *
+ * Usage example
+ *
+ *     services:
+ *         acme.monolog_mailer:
+ *             class: Frosas\MiscBundle\Monolog\Handler\SwiftMailer
+ *             arguments:
+ *                 - @mailer
+ *                 - info@example.com
+ *                 - {support@example.com: Example Support}
+ *
+ *     monolog:
+ *         handlers:
+ *             # ...
+ *             mailer:
+ *                 type: service
+ *                 id: acme.monolog_mailer
+ */
 class SwiftMailer extends MailHandler
 {
     private $mailer;
