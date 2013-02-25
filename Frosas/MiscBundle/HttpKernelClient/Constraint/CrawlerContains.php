@@ -12,13 +12,13 @@ class CrawlerContains extends \PHPUnit_Framework_Constraint
     function __construct($text)
     {
         $this->text = $text;
+        $this->emptyConstraint = new EmptyCrawler;
     }
 
-    function matches($crawler)
+    function matches($helper)
     {
-        $crawler = $crawler->filter('html:contains("' . $this->text . '")');
-        $this->emptyConstraint = new EmptyCrawler;
-        return ! $this->emptyConstraint->matches($crawler);
+        $crawler = $helper->getCrawler()->filter('html:contains("' . $this->text . '")');
+        return ! $this->emptyConstraint->matches(new CrawlerHelper($crawler));
     }
 
     function toString()
@@ -26,8 +26,14 @@ class CrawlerContains extends \PHPUnit_Framework_Constraint
         return "contains \"$this->text\"";
     }
 
-    function additionalFailureDescription($crawler)
+    function additionalFailureDescription($helper)
     {
-        return $this->emptyConstraint->additionalFailureDescription($crawler);
+        return $this->emptyConstraint->additionalFailureDescription($helper);
+    }
+
+    protected function failureDescription($helper)
+    {
+        // Avoid the "Allowed memory size ... exhausted" by PHPUnit_Util_Type::export() on a Client
+        return "$helper {$this->toString()}";
     }
 }

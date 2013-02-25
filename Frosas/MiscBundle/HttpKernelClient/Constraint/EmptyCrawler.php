@@ -6,9 +6,9 @@ use Frosas\MiscBundle\HttpKernelClient\CrawlerHelper;
 
 class EmptyCrawler extends \PHPUnit_Framework_Constraint
 {
-    function matches($crawler)
+    function matches($helper)
     {
-        return ! count($crawler);
+        return ! count($helper->getCrawler());
     }
 
     function toString()
@@ -16,8 +16,8 @@ class EmptyCrawler extends \PHPUnit_Framework_Constraint
         return 'is empty';
     }
 
-    function additionalFailureDescription($crawler)
+    function additionalFailureDescription($helper)
     {
-        return "\nDump at " . CrawlerHelper::create($crawler)->dumpToFile();
+        return "\nDump at " . $helper->dumpToFile();
     }
 }
