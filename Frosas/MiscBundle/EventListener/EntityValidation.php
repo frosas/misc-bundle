@@ -5,7 +5,7 @@ namespace Frosas\MiscBundle\EventListener;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\EntityManager;
 use Frosas\Collection;
-use Symfony\Component\Validator\Validator;
+use Symfony\Component\Validator\Validator\RecursiveValidator;
 
 /**
  * Validates the entities being flushed
@@ -14,7 +14,7 @@ class EntityValidation
 {
     private $validator;
 
-    function __construct(Validator $validator)
+    function __construct(RecursiveValidator $validator)
     {
         $this->validator = $validator;
     }
