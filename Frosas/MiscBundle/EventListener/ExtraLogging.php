@@ -6,7 +6,7 @@ use Frosas\Backtrace;
 use Frosas\Collection;
 use Frosas\String;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Bundle\FrameworkBundle\HttpKernel;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Yaml\Yaml;
 
@@ -25,7 +25,7 @@ class ExtraLogging
     function onKernelRequest(GetResponseEvent $event)
     {
         // Don't log sub-requests as these has the same information
-        if ($event->getRequestType() !== HttpKernel::MASTER_REQUEST) return;
+        if ($event->getRequestType() !== HttpKernelInterface::MASTER_REQUEST) return;
 
         $this->logger->debug("Request URI: {$event->getRequest()->getUri()}");
         $this->logger->debug("Request headers:\n" . $this->dictionaryToString($event->getRequest()->headers));
